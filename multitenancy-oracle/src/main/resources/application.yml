@@ -1,0 +1,28 @@
+spring:
+  thymeleaf:
+    cache: false
+    mode: LEGACYHTML5
+  jpa:
+    database: oracle
+    show-sql: true
+    generate-ddl: false
+    properties:
+      hibernate:
+        ddl-auto: none
+        dialect: org.hibernate.dialect.Oracle12cDialect
+
+multitenancy:
+  mtapp:
+    dataSources:
+    -
+      tenantId: tenant_1
+      url: jdbc:oracle:thin:@<IP>:<PORT>/SID
+      username: <UserName>
+      password: <PASSWORD>
+      driverClassName: oracle.jdbc.OracleDriver
+    -
+      tenantId: tenant_2
+      url: jdbc:oracle:thin:@<IP>:<PORT>/SID
+      username: <UserName>
+      password: <PASSWORD>
+      driverClassName: oracle.jdbc.OracleDriver
